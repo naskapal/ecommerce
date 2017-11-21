@@ -49,19 +49,27 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-3">
+        <div class="col-12">
           <div>
             Shopping Cart :
           </div>
           <div class="cartItem" v-for="item in cart">
-            <span class="amount">{{item.amount}} x {{item.name}} = {{item.amount*item.price}}</span>
+            <span class="amount">{{item.amount}} x {{item.name}} = Rp {{item.amount*item.price}}</span>
             <span class="decrement"> <button class="btn btn-success" type="button" name="button" v-on:click="removeOne(item)">Remove one</button> </span>
             <span class="decrement"> <button class="btn btn-success" type="button" name="button" v-on:click="remove(item)">Remove</button> </span>
+            <div class="whitespace-cart">
+            </div>
+          </div>
+          <div class="total">
+            <span class="total" v-if="total > 0">Rp {{total}}</span>
+          </div>
+          <div class="checkout" v-if="total > 0">
+            <button class="btn btn-success" type="button" name="button">checkout</button>
           </div>
         </div>
       </div>
     </div>
-    
+
     <div class="whitespace">
     </div>
 
@@ -73,7 +81,7 @@
             <div class="card-body">
               <h4 class="card-title">{{ data.name }}</h4>
               <p class="card-text">{{ data.description }}</p>
-              <a href="#" class="btn btn-success" v-on:click="addToCart(data)">Add to Cart</a>
+              <button class="btn btn-success" v-on:click="addToCart(data)">Add to Cart</button>
             </div>
           </div>
 
@@ -81,14 +89,14 @@
           </div>
         </div>
 
-        </div>
-        <!-- /.card-deck -->
       </div>
-      <!-- /.container -->
+      <!-- /.card-deck -->
     </div>
-    <!-- /#app -->
+    <!-- /.container -->
   </div>
-  
+  <!-- /#app -->
+  </div>
+
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
